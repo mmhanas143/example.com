@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisan Storecrafter | Premium Print-on-Demand Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #0A0A0A;
+            --color-primary: #8A2BE2; /* BlueViolet */
+            --color-secondary: #00F5FF; /* Aqua */
+            --color-glow: rgba(138, 43, 226, 0.5);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg);
+            color: #E0E0E0;
+        }
+        
+        /* Fixed, subtle background aurora effect */
+        .aurora-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            background: radial-gradient(ellipse at 25% 25%, var(--color-primary) 0%, transparent 40%),
+                        radial-gradient(ellipse at 75% 75%, var(--color-secondary) 0%, transparent 40%);
+            animation: aurora 20s infinite linear;
+            opacity: 0.15;
+            filter: blur(100px);
+        }
+
+        @keyframes aurora {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Reusable gradient text class */
+        .gradient-text {
+            background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        /* Reusable button with hover effects */
+        .cta-button {
+            position: relative;
+            background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+            color: white;
+            /* Responsive padding and font size */
+            padding: 0.75rem 2rem; 
+            font-size: 0.875rem; 
+            @media (min-width: 768px) {
+                padding: 1rem 2.5rem;
+                font-size: 1rem;
+            }
+            border-radius: 9999px;
+            font-weight: 700;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            display: inline-block; /* Ensure it's not a block-level element by default */
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px var(--color-glow);
+        }
+
+        /* Glassmorphism card effect */
+        .glass-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(138, 43, 226, 0.5);
+            box-shadow: 0 0 40px rgba(138, 43, 226, 0.2);
+        }
+        
+        /* Scroll-reveal animation classes */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        #hero-container {
+            perspective: 1000px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="aurora-bg"></div>
+    <div class="relative z-10">
+        <!-- Header -->
+        <header class="fixed top-0 left-0 right-0 z-50 p-4">
+            <div class="container mx-auto flex justify-between items-center bg-black/20 backdrop-blur-md p-2 md:p-3 rounded-full border border-white/10">
+                <h1 class="text-xl md:text-2xl font-bold gradient-text ml-2 md:ml-4">StoreCraft</h1>
+                <a href="#contact" class="cta-button text-sm mr-2">Let's Talk</a>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section id="hero-container" class="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-20">
+            <div id="hero-content" style="transition: transform 0.1s ease-out;">
+                <div class="mb-4">
+                    <span class="inline-block bg-white/10 text-gray-300 text-xs sm:text-sm px-3 py-1 rounded-full border border-white/20">From Dream to Bestseller</span>
+                </div>
+                <!-- Responsive heading size -->
+                <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-white leading-tight mb-4 md:mb-6 scroll-reveal">
+                    Your Vision, <br> <span class="gradient-text">Engineered to Sell.</span>
+                </h2>
+                <!-- Responsive paragraph size and margin -->
+                <p class="text-base sm:text-lg text-gray-400 mb-8 md:mb-12 max-w-2xl mx-auto scroll-reveal" style="transition-delay: 200ms;">
+                    Stop being just another store. I build immersive, high-converting print-on-demand experiences that captivate customers and drive sales.
+                </p>
+                <div class="scroll-reveal" style="transition-delay: 400ms;">
+                    <a href="#services" class="cta-button">Explore My Craft</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Transformation Section -->
+        <section class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <!-- Use a single column on small screens, two columns on medium screens -->
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="scroll-reveal">
+                        <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">Is Your Store a Ghost Town?</h3>
+                        <p class="text-base md:text-lg text-gray-400 leading-relaxed mb-4 md:mb-6">
+                            You have the passion and the products. But passion doesn't pay the bills. A store needs more than just a pretty design; it needs a soul. It needs a strategy to turn casual browsers into loyal customers.
+                        </p>
+                        <p class="text-base md:text-lg text-gray-300 leading-relaxed font-semibold">
+                            Let's build a destination, not just a storefront.
+                        </p>
+                    </div>
+                    <div class="scroll-reveal mt-8 md:mt-0" style="transition-delay: 200ms;">
+                        <div class="glass-card p-6 md:p-8 text-center">
+                            <svg class="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01M12 6v-1m0-1V4m0 2.01M12 18v-2m0-2v-2m0-2v-2m0-2V8m0 10v1m0 1v1m0-2.01M18.364 5.636l-1.414 1.414M5.636 18.364l-1.414 1.414M18.364 18.364l-1.414-1.414M5.636 5.636l1.414 1.414M12 21a9 9 0 100-18 9 9 0 000 18z"></path></svg>
+                            <h4 class="text-xl md:text-2xl font-bold text-white">The Conversion Catalyst</h4>
+                            <p class="text-sm md:text-base text-gray-400 mt-2">I blend artistry with analytics to create a store that not only looks stunning but is optimized for sales from the ground up.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 md:mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white scroll-reveal">The Artisan's Toolkit</h2>
+                    <p class="text-base md:text-lg text-gray-400 mt-2 max-w-2xl mx-auto scroll-reveal" style="transition-delay: 100ms;">Every service is a brushstroke in your masterpiece.</p>
+                </div>
+                <!-- Services grid now correctly stacks on mobile -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <!-- Service Cards -->
+                    <div class="glass-card scroll-reveal">
+                        <h3 class="font-bold text-lg md:text-xl text-white mb-2">Bespoke Store Architecture</h3>
+                        <p class="text-sm md:text-base text-gray-400">Full Etsy/Shopify setup, tailored to your brand's unique story.</p>
+                    </div>
+                    <div class="glass-card scroll-reveal" style="transition-delay: 100ms;">
+                        <h3 class="font-bold text-lg md:text-xl text-white mb-2">Automated Fulfillment</h3>
+                        <p class="text-sm md:text-base text-gray-400">Flawless integration with Printful, Printify, or Gelato.</p>
+                    </div>
+                    <div class="glass-card scroll-reveal" style="transition-delay: 200ms;">
+                        <h3 class="font-bold text-lg md:text-xl text-white mb-2">Product Storytelling</h3>
+                        <p class="text-sm md:text-base text-gray-400">Compelling listings for art, apparel, planners, and more.</p>
+                    </div>
+                    <div class="glass-card scroll-reveal" style="transition-delay: 300ms;">
+                        <h3 class="font-bold text-lg md:text-xl text-white mb-2">Search & Discovery SEO</h3>
+                        <p class="text-sm md:text-base text-gray-400">Climb the search rankings and get found by your ideal buyers.</p>
+                    </div>
+                    <div class="glass-card scroll-reveal" style="transition-delay: 400ms;">
+                        <h3 class="font-bold text-lg md:text-xl text-white mb-2">Signature Branding</h3>
+                        <p class="text-sm md:text-base text-gray-400">Custom mockups and branding that create an unforgettable identity.</p>
+                    </div>
+                    <div class="glass-card scroll-reveal" style="transition-delay: 500ms;">
+                        <h3 class="font-bold text-lg md:text-xl text-white mb-2">Fluid Responsive Design</h3>
+                        <p class="text-sm md:text-base text-gray-400">A perfect, seamless experience on every single device.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact / CTA Section -->
+        <section id="contact" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="relative text-center p-8 md:p-16 rounded-2xl overflow-hidden glass-card">
+                     <div class="relative z-10">
+                        <h2 class="text-3xl md:text-5xl font-bold text-white scroll-reveal">Ready to Craft Your Legacy?</h2>
+                        <p class="text-base md:text-lg text-gray-300 mt-4 mb-6 md:mb-8 max-w-xl mx-auto scroll-reveal" style="transition-delay: 150ms;">Your bestselling store is one conversation away. Let's create something timeless.</p>
+                        <div class="scroll-reveal" style="transition-delay: 300ms;">
+                            <a href="mailto:your-email@example.com" class="cta-button">
+                                Begin Your Project
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="border-t border-white/10 py-8">
+            <div class="container mx-auto text-center text-gray-500">
+                <p>&copy; 2024 StoreCraft by [Your Name]. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Scroll-triggered animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Hero parallax effect, designed for mouse events
+        const heroContainer = document.getElementById('hero-container');
+        const heroContent = document.getElementById('hero-content');
+
+        if (window.innerWidth >= 768) { // Only activate on larger screens
+            heroContainer.addEventListener('mousemove', (e) => {
+                const { clientX, clientY } = e;
+                const { offsetWidth, offsetHeight } = heroContainer;
+                
+                const xRotation = ((clientY - offsetHeight / 2) / offsetHeight) * -8;
+                const yRotation = ((clientX - offsetWidth / 2) / offsetWidth) * 8;
+
+                heroContent.style.transform = `rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale(1.05)`;
+            });
+
+            heroContainer.addEventListener('mouseleave', () => {
+                heroContent.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+            });
+        }
+    </script>
+</body>
+</html>
+
+  
